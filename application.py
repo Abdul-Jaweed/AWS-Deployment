@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
 import re
 
-application = Flask(__name__)
+application=Flask(__name__)
+
+app=application
 
 @app.route('/', methods=['GET', 'POST'])
 def regex_tester():
@@ -24,4 +26,4 @@ def regex_tester():
     return render_template('index.html', pattern=pattern, test_string=test_string, result=result)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")

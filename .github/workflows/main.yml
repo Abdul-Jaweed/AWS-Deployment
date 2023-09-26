@@ -86,9 +86,9 @@ jobs:
         run: |
          docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
          
-    #   - name: Stop and remove container if running
-    #     run: |
-    #      docker ps -q --filter "name=regex-app" | grep -q . && docker stop regex-app && docker rm -fv regex-app
+      # - name: Stop and remove container if running
+      #   run: |
+      #    docker ps -q --filter "name=latest" | grep -q . && docker stop tumor && docker rm -fv regex-app
        
       - name: Run Docker Image to serve users
         run: |

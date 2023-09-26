@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex Tester</title>
+</head>
+<body>
+    <h1>Regex Tester</h1>
+    <form method="POST">
+        <label for="pattern">Regular Expression:</label>
+        <input type="text" name="pattern" value="{{ pattern }}" required>
+        <br>
+        <label for="test_string">Test String:</label>
+        <input type="text" name="test_string" value="{{ test_string }}" required>
+        <br>
+        <input type="submit" value="Test">
+    </form>
+    <div>
+        <h2>Result:</h2>
+        <p>{{ result }}</p>
+    </div>
+</body>
+</html>

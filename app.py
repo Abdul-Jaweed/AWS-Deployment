@@ -1,27 +1,23 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template, request
 import re
+app = Flask(__name__)
 
-app=Flask(__name__)
-
-@app.route('/', methods=['GET', 'POST'])
-def regex_tester():
+@app.route('/',methods = ['POST','GET'])
+def regexp_fun():
     if request.method == 'POST':
-        pattern = request.form['pattern']
-        test_string = request.form['test_string']
-        try:
-            match = re.search(pattern, test_string)
-            if match:
-                result = f'Match found: {match.group()}'
-            else:
-                result = 'No match found.'
-        except re.error as e:
-            result = f'Error: {e}'
-    else:
-        pattern = ''
-        test_string = ''
-        result = ''
+        regexp = request.form['input1']
+        string_input = request.form['input2']
+        match=re.findall(regexp, string_input)
+        count=len(match)
 
-    return render_template('index.html', pattern=pattern, test_string=test_string, result=result)
+
+ 
+        return render_template('index.html',count=count,regexp1= regexp,stro = string_input,match=match)
+
+    else:
+        count =None
+        return render_template('index.html',count = count)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080) # For deployment

@@ -1,14 +1,10 @@
-# Use an official Python image that supports Python 3.8 or higher
 FROM python:3.8-slim-buster
 
-# Set the working directory
+RUN apt update -y && apt install awscli -y
 WORKDIR /app
 
-# Copy the application code into the container
 COPY . /app
 
-# Install the required Python packages
 RUN pip install -r requirements.txt
 
-# Define the command to run your application
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]

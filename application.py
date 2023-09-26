@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 import re
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def regex_tester():
